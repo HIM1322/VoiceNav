@@ -4,11 +4,16 @@ workflows:
     max_build_duration: 30
     instance_type: mac_mini_m2
 
+    working_directory: VoiceNav_Evneet
+
     scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/VoiceNav_Evneet/local.properties"
+
       - name: Build VoiceNav APK
         script: |
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
           gradle assembleDebug --no-daemon
 
     artifacts:
-      - app/build/outputs/apk/debug/app-debug.apk
+      - VoiceNav_Evneet/app/build/outputs/apk/debug/app-debug.apk
