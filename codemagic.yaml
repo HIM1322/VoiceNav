@@ -15,5 +15,18 @@ workflows:
         script: |
           gradle assembleDebug --no-daemon
 
+      - name: Collect APK
+        script: |
+          echo "Searching for APK..."
+          find . -name "*.apk" -print
+          APK=$(find . -path "*/build/outputs/apk/debug/*.apk" -type f | head -1)
+          if [ -z "$APK" ]; then
+            echo "ERROR: APK was not created"
+            exit 1
+          fi
+          echo "Found: $APK"
+          cp "$APK" "$CM_BUILD_DIR/VoiceNav-Evneet.apk"
+          ls -lh "$CM_BUILD_DIR/VoiceNav-Evneet.apk"
+
     artifacts:
-      - VoiceNav_Evneet/app/build/outputs/apk/debug/app-debug.apk
+      - VoiceNav-Evneet.apk
