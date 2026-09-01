@@ -1,0 +1,19 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.evn.voiceNav'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.evn.voiceNav'
+        minSdk 23
+        targetSdk 25
+        versionCode 1
+        versionName '1.0-evneet'
+    }
+}
+
+dependencies {
+}

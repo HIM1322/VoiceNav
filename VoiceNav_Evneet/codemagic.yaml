@@ -1,0 +1,18 @@
+workflows:
+  voice-nav-debug:
+    name: VoiceNav Evneet Debug APK
+    max_build_duration: 30
+    instance_type: linux_x2
+    environment:
+      vars:
+        PACKAGE_NAME: "com.evn.voiceNav"
+    scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+      - name: Build debug APK
+        script: |
+          gradle --version
+          gradle assembleDebug --no-daemon
+    artifacts:
+      - app/build/outputs/apk/debug/app-debug.apk
