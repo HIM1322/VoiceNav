@@ -28,5 +28,5 @@ workflows:
           cp "$APK" "$CM_BUILD_DIR/VoiceNav-Evneet.apk"
           ls -lh "$CM_BUILD_DIR/VoiceNav-Evneet.apk"
 
-    artifacts:
-      - VoiceNav-Evneet.apk
+        artifacts:
+      - $CM_BUILD_DIR/VoiceNav-Evneet.apk
