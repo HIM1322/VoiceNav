@@ -9,7 +9,7 @@ workflows:
     scripts:
       - name: Set Android SDK location
         script: |
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/VoiceNav_Evneet/local.properties"
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
       - name: Build VoiceNav APK
         script: |
